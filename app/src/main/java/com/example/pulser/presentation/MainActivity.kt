@@ -65,9 +65,10 @@ fun Pulse2App(vibrator: Vibrator) {
                 text = "${String.format("%.1f", pulseInterval)}s",
                 fontSize = 16.sp,
                 textAlign = TextAlign.Center,
-                color = Color(0xFF4CAF50), // Green
+//                color = Color(0xFF4CAF50), // Green
+                color = if (isVibrating) Color(0xFF4CAF50) else Color(0xFFF44336), // Green or Red
                 modifier = Modifier
-                    .offset(x = 85.dp, y = 90.dp)
+                    .offset(x = 85.dp, y = 76.dp)
                     .padding(2.dp)
             )
             // Duration text
@@ -75,9 +76,10 @@ fun Pulse2App(vibrator: Vibrator) {
                 text = "${pulseDuration}ms",
                 fontSize = 16.sp,
                 textAlign = TextAlign.Center,
-                color = Color(0xFF4CAF50), // Green
+//                color = Color(0xFF4CAF50), // Green
+                color = if (isVibrating) Color(0xFF4CAF50) else Color(0xFFF44336), // Green or Red
                 modifier = Modifier
-                    .offset(x = 75.dp, y = 140.dp)
+                    .offset(x = 79.dp, y = 150.dp)
                     .padding(2.dp)
             )
             // Status text (Running/Stopped)
@@ -87,7 +89,7 @@ fun Pulse2App(vibrator: Vibrator) {
                 textAlign = TextAlign.Center,
                 color = if (isVibrating) Color(0xFF4CAF50) else Color(0xFFF44336), // Green or Red
                 modifier = Modifier
-                    .offset(x = 78.dp, y = 50.dp)
+                    .offset(x = 75.dp, y = 45.dp)
                     .padding(2.dp)
             )
 //---------------------------TEXT END---------------------------------------
@@ -97,12 +99,12 @@ fun Pulse2App(vibrator: Vibrator) {
                 onClick = { if (pulseInterval > 1.0f) pulseInterval -= 0.1f },
                 colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFFFFFF00)), // Yellow
                 modifier = Modifier
-                    .offset(x = (20).dp, y = 70.dp) // Left of center
+                    .offset(x = (2).dp, y = 70.dp) // Left of center
                     .padding(1.dp)
             ) {
                 Text(
                     text = "-",
-                    fontSize = 20.sp, // Your big size!
+                    fontSize = 40.sp, // Your big size!
                     color = Color(0xFF000000) // Black
                 )
             }
@@ -114,13 +116,12 @@ fun Pulse2App(vibrator: Vibrator) {
                     backgroundColor = if (isVibrating) Color(0xFFF44336) else Color(0xFF4CAF50) // Red or Green
                 ),
                 modifier = Modifier
-                    .offset(x = 80.dp, y = 0.dp) // Middle
+                    .offset(x = 75.dp, y = -5.dp) // Middle
                     .padding(1.dp)
             ) {
                 Text(
-//                    text = if (isVibrating) "Stop" else "Start",
                     text = if (isVibrating) "Stop" else "Start",
-                    fontSize = 12.sp,
+                    fontSize = 20.sp,
                     color = Color(0xFF000000) // Black
                 )
             }
@@ -130,12 +131,12 @@ fun Pulse2App(vibrator: Vibrator) {
                 onClick = { if (pulseInterval < 3.0f) pulseInterval += 0.1f },
                 colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFFFFFF00)), // Yellow
                 modifier = Modifier
-                    .offset(x = 130.dp, y = 70.dp) // Right of center
+                    .offset(x = 158.dp, y = 70.dp) // Right of center
                     .padding(1.dp)
             ) {
                 Text(
                     text = "+",
-                    fontSize = 20.sp, // Your big size!
+                    fontSize = 30.sp, // Your big size!
                     color = Color(0xFF000000) // Black
                 )
             }
@@ -145,12 +146,12 @@ fun Pulse2App(vibrator: Vibrator) {
                 onClick = { if (pulseDuration > 100) pulseDuration -= 50 },
                 colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFF2196F3)), // Blue
                 modifier = Modifier
-                    .offset(x = (20).dp, y = 130.dp) // Left, below top row
-                    .padding(1.dp)
+                    .offset(x = (17).dp, y = 130.dp) // Left, below top row
+ //                   .padding(1.dp)
             ) {
                 Text(
                     text = "-",
-                    fontSize = 20.sp, // Your big size!
+                    fontSize = 40.sp, // Your big size!
                     color = Color(0xFF000000) // Black
                 )
             }
@@ -160,13 +161,12 @@ fun Pulse2App(vibrator: Vibrator) {
                 onClick = { if (pulseDuration < 300) pulseDuration += 50 },
                 colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFF2196F3)), // Blue
                 modifier = Modifier
-                    .offset(x = 130.dp, y = 130.dp) // Right, below top row
+                    .offset(x = 141.dp, y = 130.dp) // Right, below top row
                     .padding(1.dp)
             ) {
                 Text(
-//                    text = "+ (x=20, y=80)",
                     text = "+",
-                    fontSize = 20.sp, // Your big size!
+                    fontSize = 30.sp, // Your big size!
                     color = Color(0xFF000000) // Black
                 )
             }
@@ -175,20 +175,20 @@ fun Pulse2App(vibrator: Vibrator) {
             Text(
 //                text = "Duration (x=0, y=110)",
                 text = "Duration",
-                fontSize = 10.sp,
+                fontSize = 20.sp,
 //                color = Color(0xFF000000), // Black
                 color = Color(0xFF2196F3), // Blue
                 modifier = Modifier
-                    .offset(x = 80.dp, y = 160.dp)
+                    .offset(x = 66.dp, y = 163.dp)
                     .padding(2.dp)
             )
             // Duration label at bottom
             Text(
                 text = "Interval",
-                fontSize = 10.sp,
+                fontSize = 20.sp,
                 color = Color(0xFFFFFF00), // Yellow
                 modifier = Modifier
-                    .offset(x = 85.dp, y = 110.dp)
+                    .offset(x = 71.dp, y = 92.dp)
                     .padding(2.dp)
             )
 //=======================================
