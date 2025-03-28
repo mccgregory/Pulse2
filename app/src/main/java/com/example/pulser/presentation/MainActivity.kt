@@ -24,7 +24,7 @@ import androidx.compose.ui.graphics.Color
 // 0xFFFFFF00: Yellow (Interval buttons)
 // 0xFF2196F3: Blue (Duration buttons)
 // 0xFF000000: Black (Text)
-
+// Test change
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
