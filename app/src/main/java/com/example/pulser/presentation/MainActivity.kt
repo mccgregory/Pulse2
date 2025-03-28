@@ -17,6 +17,7 @@ import androidx.wear.compose.material.Scaffold
 import androidx.wear.compose.material.Text
 import android.os.VibrationEffect
 import androidx.compose.ui.graphics.Color
+import java.util.Locale
 
 // Colors used:
 // 0xFFF44336: Red (Stop button)
@@ -62,7 +63,7 @@ fun Pulse2App(vibrator: Vibrator) {
 //--------------------------TEXT START----------------------------------------
             // Interval text
             Text(
-                text = "${String.format("%.1f", pulseInterval)}s",
+                text = "${String.format(Locale.US, "%.1f", pulseInterval)}s",
                 fontSize = 16.sp,
                 textAlign = TextAlign.Center,
 //                color = Color(0xFF4CAF50), // Green
